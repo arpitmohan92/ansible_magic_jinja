@@ -4,8 +4,8 @@ pipeline {
          stage('Build') {
             steps {
                 sh '''
-                    ./build/mvn.sh -B -DskipTests clean package
-                    ./build/build.sh
+                    ./mvn.sh -B -DskipTests clean package
+                    ./build.sh
 
                 '''
             }            

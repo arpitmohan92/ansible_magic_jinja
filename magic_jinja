@@ -1,0 +1,17 @@
+#Magic variable
+
+1)To provide the ip address of lamp-web server in the playbook.
+eg.
+host={{ hostvars['lamp-web']['ansible_facts']['eth0']['ipv4']['address'] }}
+
+#Jinja2 Templates
+
+1)Suppose if I want to provide the dbname as variable in in db-backup.sql file. In db-backup.sql file
+replace the dbname with {{ db_name }}.
+
+db_name will be used as a variable and its value will be stored in inventory file.
+ 
+- name: Move db-load-script to db host
+      template:
+        src: templates/db-load-script.sql.j2
+        dest: /tmp/db-load-script.sql
